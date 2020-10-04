@@ -1,0 +1,11 @@
+Country,Age,Salary,Purchased
+Russia,44,72000,No
+Spain,27,48000,Yes
+China,30,54000,No
+Spain,38,61000,No
+China,40,,Yes
+Russia,35,58000,Yes
+Spain,,52000,No
+Russia,48,79000,Yes
+China,50,83000,No
+Russia,37,67000,Yes
