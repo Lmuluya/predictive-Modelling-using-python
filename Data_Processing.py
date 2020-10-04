@@ -8,6 +8,8 @@ from sklearn.impute import SimpleImputer
 
 from sklearn.preprocessing import LabelEncoder,OneHotEncoder
 
+from sklearn.model_selection import train_test_split
+
 os.getcwd()
 
 ## importing dataset 
@@ -48,5 +50,9 @@ x[:,0] = label_encoder_x.fit_transform(x[:,0])
 # Creating dummy variables
 onehot = OneHotEncoder(categorical_features = [0])
 x = onehot.fit_transform(x).toarray()
+
+# Creating the train test splits 
+x_train,x_test,y_train,y_test = train_test_split(x,y, test_size = 0.2,
+                                                 random_state = 0)
 
 
