@@ -48,3 +48,27 @@ regressor.intercept_ ## B_0
 regressor.coef_
 
 # Predicting the test set results
+
+pred = regressor.predict(x_test)
+
+# Calculationg RMSE - Root Mean Squared Error
+
+from sklearn.metrics import mean_squared_error
+
+from math import sqrt
+
+rmse = sqrt(mean_squared_error(y_test,pred))
+
+rmse
+
+#####################################################
+
+# Making an optimal model using stats model
+
+# import stats model and add another variable 
+import statsmodels.regression.linear_model as lm
+
+x = np.append(arr=np.ones((50,1)).astype(int), values=x, axis=1)
+X_opt=x[:,[0, 1, 2, 3, 4, 5]]
+regressor_x=sm.OLS(endog=y, exog=X_opt).fit()
+regressor_x.summary()
