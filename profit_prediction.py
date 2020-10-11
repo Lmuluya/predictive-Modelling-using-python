@@ -76,3 +76,46 @@ regressor_x.summary()
 # Making an optimal model
 # Remove variable with highest p-value (>0.05)
 
+# R-squared:                       0.951
+# Adj. R-squared:                  0.945
+
+# Remove variable 2
+X_opt=x[:,[0, 1, 3, 4, 5]]
+regressor_x=lm.OLS(endog=y, exog=X_opt).fit()
+regressor_x.summary()
+
+# Remove 1
+
+# R-squared:                       0.951
+# Adj. R-squared:                  0.945
+
+X_opt=x[:,[0, 3, 4, 5]]
+regressor_x=lm.OLS(endog=y, exog=X_opt).fit()
+regressor_x.summary()
+
+# R-squared:                       0.951
+# Adj. R-squared:                  0.945
+# Remove 4
+X_opt=x[:,[0, 3, 5]]
+regressor_x=lm.OLS(endog=y, exog=X_opt).fit()
+regressor_x.summary()
+
+# R-squared:                       0.951
+# Adj. R-squared:                  0.945
+# Remove 5
+X_opt=x[:,[0, 3]]
+regressor_x=lm.OLS(endog=y, exog=X_opt).fit()
+regressor_x.summary()
+
+# Making model with significant variables
+
+# Split
+x_train, x_test, y_train,y_test = train_test_split(x, y, test_size = 0.2,
+                                                   random_state = 0)
+
+regressor_2 = lm.OLS(endog = y_train, exog = x_train[:,[0,3]]).fit()
+regressor_2.summary()
+
+
+
+
