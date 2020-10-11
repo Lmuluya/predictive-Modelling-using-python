@@ -70,5 +70,9 @@ import statsmodels.regression.linear_model as lm
 
 x = np.append(arr=np.ones((50,1)).astype(int), values=x, axis=1)
 X_opt=x[:,[0, 1, 2, 3, 4, 5]]
-regressor_x=sm.OLS(endog=y, exog=X_opt).fit()
+regressor_x=lm.OLS(endog=y, exog=X_opt).fit()
 regressor_x.summary()
+
+# Making an optimal model
+# Remove variable with highest p-value (>0.05)
+
