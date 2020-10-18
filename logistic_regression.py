@@ -56,4 +56,22 @@ classifier.fit(x_train,y_train)
 
 y_pred = classifier.predict(x_test)
 
+# Generating a confusion matrix
 
+from sklearn.metrics import confusion_matrix
+
+cm = confusion_matrix(y_test,y_pred)
+
+cm
+
+
+#array([[65,  3],
+#       [ 8, 24]], dtype=int64)
+
+#TN = 65
+#TP = 24
+#FN = 8
+#FP = 3
+
+pd.crosstab(y_test,y_pred,rownames = ["True"],colnames =["Predicted"],
+            margins = True)
